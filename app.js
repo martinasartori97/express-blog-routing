@@ -22,9 +22,16 @@ app.get('/'(req, res) => {
 
 
 
+
+
 const posts = require('./db/posts.js')
 app.get('/posts', (req, res) => {
     res.json({ data: posts, count: posts.length })
 });
 
+const PostsController = require('./controllers/PostsController');
+app.get('/posts', postsController.index);
 
+
+
+app.get('/posts/:id', PostsController.show);
