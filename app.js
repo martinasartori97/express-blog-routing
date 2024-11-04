@@ -19,11 +19,6 @@ app.get('/'(req, res) => {
     res.send('posts rest API')
 })
 
-
-
-
-
-
 const posts = require('./db/posts.js')
 app.get('/posts', (req, res) => {
     res.json({ data: posts, count: posts.length })
@@ -42,11 +37,6 @@ const app = express()
 const PizzaController = require('./controllers/PizzaController');
 // static files (optional)
 app.use(express.static('/public'))
-
-app.listen(3000, () => {
-  console.log("Server started on port 3000")
-});
-
 
 app.get('/pizze', PizzaController.index);
 app.get('/pizze/:id', PizzaController.show);
