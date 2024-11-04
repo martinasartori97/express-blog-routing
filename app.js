@@ -35,3 +35,19 @@ app.get('/posts', postsController.index);
 
 
 app.get('/posts/:id', PostsController.show);
+
+
+const express = require('express')
+const app = express()
+const PizzaController = require('./controllers/PizzaController');
+// static files (optional)
+app.use(express.static('/public'))
+
+app.listen(3000, () => {
+  console.log("Server started on port 3000")
+});
+
+
+app.get('/pizze', PizzaController.index);
+app.get('/pizze/:id', PizzaController.show);
+
