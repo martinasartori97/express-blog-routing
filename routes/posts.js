@@ -1,7 +1,7 @@
 const express = require('express')
 
 const router = express.Router()
-const PizzaController = require('../controllers/PostsController.js')
+const PostsController = require('../controllers/PostsController.js')
 
 router.get('/', PostsController.index)
 router.get('/:id', PostsController.show)
