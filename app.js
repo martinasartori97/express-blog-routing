@@ -12,7 +12,7 @@ app.use(express.static('public'));
 
 
 
-app.get('/'(req, res) => {
+app.get('/', (req, res) => {
     res.send('posts rest API')
 });
 
@@ -22,7 +22,7 @@ app.get('/posts', (req, res) => {
 });
 
 const PostsController = require('./controllers/PostsController');
-app.get('/posts', postsController.index);
+app.get('/posts', PostsController.index);
 
 
 
@@ -32,5 +32,5 @@ app.get('/posts/:id', PostsController.show);
 
 
 app.listen(3000, () => {
-    console.log(`server is running at http://127.0.0.1:3000}`)
-  });
+    console.log(`server is running at http://127.0.0.1:3000`)
+});
