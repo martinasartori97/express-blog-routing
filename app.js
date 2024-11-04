@@ -8,21 +8,23 @@ const app = express()
 const HOST = process.env.HOST
 const PORT = process.env.PORT
 
-app.listen(PORT, (req,res) => {
-    console.log(`server is running at ${HOST}: ${PORT}`);
-  })
+app.use(express.static('/public'))
+
+app.listen(3000, (req, res) => {
+    console.log(`server is running at  "http://127.0.0.1":3000}`);
+})
 
 
-app.get(','(req,res) => {
+app.get('/'(req, res) => {
     res.send('posts rest API')
 })
 
-// POSTS API
-app.get('/pizze',(req,res) => {
-    res.json({
-        data:
-        counter:
-    })
-})
+
+
+
+const posts = require('./db/posts.js')
+app.get('/posts', (req, res) => {
+    res.json({ data: posts, count: posts.length })
+});
 
 
